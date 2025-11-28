@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organ Donation – Save Lives</title>
+
+<style>
+/* GLOBAL ========= */
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:#eef4ff;
+    color:#333;
+    overflow-x:hidden;
+}
+h2{ color:#005fcc; }
+
+/* NAVBAR ========= */
+nav{
+    background:#005fccd0;
+    backdrop-filter:blur(6px);
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+}
+nav h2{ margin:0; }
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:bold;
+    transition:0.3s;
+}
+nav a:hover{
+    color:#00d4ff;
+    transform:scale(1.1);
+}
+
+/* HERO WITH VIDEO ========= */
+.hero{
+    position:relative;
+    height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+}
+.hero video{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    top:0;left:0;
+    z-index:-1;
+    filter:brightness(0.55);
+}
+.hero-content{
+    animation:fadeDown 1.5s ease-in-out;
+}
+.hero h1{
+    font-size:60px;
+    margin:0;
+}
+.hero p{
+    font-size:22px;
+    margin-bottom:20px;
+}
+.hero button{
+    padding:12px 25px;
+    font-size:18px;
+    background:#00b7ff;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+.hero button:hover{
+    background:#008fcc;
+    transform:scale(1.1);
+}
+
+/* SECTIONS ========= */
+section{
+    width:90%;
+    max-width:1100px;
+    background:white;
+    padding:35px;
+    margin:40px auto;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
+    animation:fadeIn 1.2s ease-in-out;
+}
+
+/* FEATURES GRID ========= */
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+}
+.feature-card{
+    background:#e7f3ff;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+    transition:0.3s;
+    opacity:0;
+    animation:slideUp 0.9s ease forwards;
+}
+.feature-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 6px 15px rgba(0,0,0,0.2);
+}
+.feature-card img{
+    width:80px;margin-bottom:10px;
+}
+
+/* FORMS ========= */
+input,select,textarea{
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
+button{
+    padding:12px 20px;
+    background:#005fcc;
+    border:none;border-radius:8px;
+    color:white;font-size:17px;
+    cursor:pointer;
+    transition:0.3s;
+}
+button:hover{
+    background:#003f8c;
+    transform:scale(1.05);
+}
+
+/* FLOATING BUTTONS ========= */
+.floating-btn{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    background:#ff006a;
+    color:white;
+    padding:15px 18px;
+    border-radius:50px;
+    font-size:18px;
+    cursor:pointer;
+    box-shadow:0 6px 15px rgba(0,0,0,0.3);
+    animation:fadeIn 1.2s ease-in-out;
+    z-index:999;
+    transition:0.3s;
+}
+.floating-btn:hover{
+    transform:scale(1.15);
+}
+
+/* SECOND FLOAT BUTTON */
+.floating-btn2{
+    position:fixed;
+    right:25px;
+    bottom:85px;
+    background:#00c853;
+    color:white;
+    padding:15px 18px;
+    border-radius:50px;
+    font-size:18px;
+    cursor:pointer;
+    box-shadow:0 6px 15px rgba(0,0,0,0.3);
+    animation:fadeIn 1.5s ease-in-out;
+    z-index:999;
+    transition:0.3s;
+}
+.floating-btn2:hover{
+    transform:scale(1.15);
+}
+
+/* ANIMATIONS ========= */
+@keyframes fadeIn{
+    from{opacity:0;} to{opacity:1;}
+}
+@keyframes fadeDown{
+    from{opacity:0;transform:translateY(-40px);}
+    to{opacity:1;transform:translateY(0);}
+}
+@keyframes slideUp{
+    from{opacity:0;transform:translateY(40px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+/* RESPONSIVE ========= */
+@media(max-width:768px){
+    .hero h1{font-size:40px;}
+    nav{flex-direction:column;text-align:center;}
+    nav a{margin:10px;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <h2>Organ Donation</h2>
+    <div>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#purpose">Purpose</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#donor">Donor</a>
+        <a href="#recipient">Recipient</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO WITH BACKGROUND VIDEO -->
+<div class="hero" id="home">
+    <video autoplay muted loop>
+        <source src="https://videos.pexels.com/video-files/3195396/3195396-hd_1920_1080_25fps.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-content">
+        <h1>Donate Life. Save Lives.</h1>
+        <p>Your decision can save up to 8 lives.</p>
+        <button onclick="document.getElementById('donor').scrollIntoView({behavior:'smooth'})">
+            Become a Donor
+        </button>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2>About Organ Donation</h2>
+    <p>Our platform connects organ donors and recipients safely, securely, and quickly.</p>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+    <h2>Key Features</h2>
+
+    <div class="features">
+
+        <div class="feature-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png">
+            <h3>Donor Registration</h3>
+            <p>Pledge your organs easily.</p>
+        </div>
+
+        <div class="feature-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2965/2965879.png">
+            <h3>Recipient Finder</h3>
+            <p>Search based on organ & blood group.</p>
+        </div>
+
+        <div class="feature-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/3209/3209993.png">
+            <h3>Hospital Verification</h3>
+            <p>Ensures safe and legal donation.</p>
+        </div>
+
+        <div class="feature-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/3103/3103446.png">
+            <h3>Secure Database</h3>
+            <p>Your data stays private.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- PURPOSE -->
+<section id="purpose">
+    <h2>Purpose</h2>
+    <ul>
+        <li>Save lives through quick matching</li>
+        <li>Promote organ donation awareness</li>
+        <li>Ensure ethical and legal donation</li>
+        <li>Support hospitals and patients</li>
+    </ul>
+</section>
+
+<!-- BENEFITS -->
+<section id="benefits">
+    <h2>Benefits</h2>
+    <ul>
+        <li>Faster matching system</li>
+        <li>Medical team verification</li>
+        <li>High-security encryption</li>
+        <li>Simple and user-friendly</li>
+    </ul>
+</section>
+
+<!-- DONOR FORM -->
+<section id="donor">
+    <h2>Donor Registration</h2>
+    <input type="text" placeholder="Full Name">
+    <input type="number" placeholder="Age">
+    <select>
+        <option>Blood Group</option>
+        <option>A+</option><option>A-</option>
+        <option>B+</option><option>B-</option>
+        <option>O+</option><option>O-</option>
+        <option>AB+</option><option>AB-</option>
+    </select>
+    <textarea placeholder="Organs you want to donate..."></textarea>
+    <button>Submit</button>
+</section>
+
+<!-- RECIPIENT FORM -->
+<section id="recipient">
+    <h2>Recipient Finder</h2>
+    <select>
+        <option>Required Organ</option>
+        <option>Kidney</option>
+        <option>Liver</option>
+        <option>Heart</option>
+        <option>Lungs</option>
+    </select>
+    <select>
+        <option>Blood Group</option>
+        <option>A+</option><option>A-</option>
+        <option>B+</option><option>B-</option>
+        <option>O+</option><option>O-</option>
+        <option>AB+</option><option>AB-</option>
+    </select>
+    <input type="text" placeholder="City/State">
+    <button>Search</button>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Contact Us</h2>
+    <input type="text" placeholder="Name">
+    <input type="email" placeholder="Email">
+    <textarea rows="4" placeholder="Message"></textarea>
+    <button>Send</button>
+</section>
+
+<!-- FLOATING BUTTONS -->
+<div class="floating-btn2" onclick="document.getElementById('donor').scrollIntoView({behavior:'smooth'})">
+    ❤️ Donate
+</div>
+
+<div class="floating-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+    📞 Contact
+</div>
+
+<!-- FOOTER -->
+<footer>
+    © 2025 Organ Donation System | All Rights Reserved
+</footer>
+
+</body>
+</html>
